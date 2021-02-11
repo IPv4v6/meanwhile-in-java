@@ -1,0 +1,19 @@
+<project name="RandomInt" default="main">
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="*.class"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="." destdir="." includeAntRuntime="false"/>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="${ant.project.name}" classpath="."/>
+	</target>
+
+	<target name="main" depends="clean,run"/>
+</project>
